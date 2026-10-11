@@ -113,6 +113,33 @@ footer{margin-top:72px; padding-top:22px; border-top:1px solid var(--line); colo
   <div class="chips"><span>요구사항 조율</span><span>현장 운영</span><span>영어 실무</span><span>제안서</span></div>
 </div>
 
+
+<h2>Troubleshooting</h2>
+
+<div class="item">
+  <div class="top"><h3>편집 PC 동시 접근 시 전송 속도 저하</h3><div class="when">인프라 검증</div></div>
+  <div class="sub">구간별 지표를 분리해 원인 구간을 좁히고 장비 선정 근거로 전환</div>
+  <ul>
+    <li><b>문제</b> — 편집용 PC 여러 대가 동시에 대용량 소재를 읽을 때 전송 속도가 공급사 제시치에 미치지 못함. 원인이 스토리지인지 네트워크인지 가릴 근거가 없었음</li>
+    <li><b>원인</b> — 구간별 지표가 없어 같은 현상을 서로 다르게 해석. 판단 재료가 공급사 성능표와 실무진의 체감뿐이었고, 구간을 나누지 않으면 어떤 장비를 골라도 같은 문제가 반복될 수 있는 상황</li>
+    <li><b>해결</b> — 비용이 들지 않는 오픈소스를 작업 시간 안에서 먼저 만들어 보고 판단하자고 제안. Zabbix·Prometheus로 구간별 처리량과 오류를 수집하고 Grafana 한 화면에 나란히 배치. 타 부서 부담이 없도록 먼저 구축한 뒤 링크만 공유</li>
+    <li><b>결과</b> — 회의가 추측 대신 수치로 진행되며 속도가 떨어지는 구간을 특정. 검증용 대시보드가 상시 운영 지표로 채택되고 장애 대응 절차의 판단 기준이 됨</li>
+  </ul>
+  <div class="chips"><span>Zabbix</span><span>Prometheus</span><span>Grafana</span><span>PoC / BMT</span><span>SOP</span></div>
+</div>
+
+<div class="item">
+  <div class="top"><h3>대량 데이터 전달 시 API 타임아웃과 응답 파싱 오류</h3><div class="when">업무 자동화</div></div>
+  <div class="sub">주고받을 형식을 규격으로 먼저 정의하고 재시도·알림 분기를 설계</div>
+  <ul>
+    <li><b>문제</b> — 처리 대상이 늘자 다음 단계로 데이터를 넘기는 과정에서 API 타임아웃과 응답 파싱 오류가 반복되며 워크플로가 중단</li>
+    <li><b>원인</b> — 많은 양을 한 번에 전송해 응답이 지연되었고, 응답 형식이 정해져 있지 않아 다음 단계에서 읽지 못함. 실패 시 재시도와 예외 분기도 없었음</li>
+    <li><b>해결</b> — 다시 실행해 넘기지 않고 실행 기록을 처음부터 되짚어 원인을 확인. 단계 간 주고받을 출력 형식을 규격으로 먼저 정의하고, 건 단위로 나눠 전송하도록 변경. 실패 시 정해진 횟수만큼 재시도한 뒤 담당자에게 알리는 분기를 설계</li>
+    <li><b>결과</b> — 수집부터 발송까지 전 구간이 중단 없이 실행. 현업이 매일 반복하던 확인·정리 작업 시간이 2시간에서 20분으로 단축되고 사내에 배포되어 실제 사용</li>
+  </ul>
+  <div class="chips"><span>n8n</span><span>Claude API</span><span>MCP</span><span>JSON Schema</span><span>Retry</span></div>
+</div>
+
 <h2>Projects</h2>
 
 <div class="grid">
