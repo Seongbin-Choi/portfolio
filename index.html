@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>최성빈 | IT Engineer Portfolio</title>
-<meta name="description" content="인프라 구축·운영과 업무 자동화를 해온 IT 엔지니어 최성빈의 포트폴리오">
+<meta name="description" content="System 구축·운영, 장비 검증, 업무 자동화를 해온 IT 엔지니어 최성빈의 포트폴리오">
 <style>
 :root{
   --bg:#ffffff; --fg:#17191c; --muted:#6b7280; --line:#e5e7eb;
@@ -62,7 +62,7 @@ footer{margin-top:72px; padding-top:22px; border-top:1px solid var(--line); colo
 
 <header>
   <h1>최성빈</h1>
-  <div class="role">IT Engineer · 인프라 구축/운영 · 업무 자동화</div>
+  <div class="role">IT Engineer · System 구축/운영 · 장비 검증 · 업무 자동화</div>
   <p class="lede">장비와 시스템을 고르고, 들인 뒤에는 운영할 수 있는 형태로 남기는 일을 해왔습니다.<br>
   추측 대신 측정한 값으로 판단하고, 반복되는 일은 자동화해 사람이 판단에 시간을 쓰게 만듭니다.</p>
   <div class="links">
@@ -80,7 +80,7 @@ footer{margin-top:72px; padding-top:22px; border-top:1px solid var(--line); colo
     <li>방송사 노후 인프라 교체 진행. 차세대 인프라 도입을 위한 기술 동향 분석과 벤더 솔루션 기술 검증(PoC/BMT) 기획 및 지원</li>
     <li>대용량 미디어 데이터 처리를 위한 고속 네트워크(25G/100G NIC) 기술 사양 비교 분석 및 인프라 고도화 로드맵 수립</li>
     <li>하이브리드 클라우드 환경 기반의 데이터 저장 체계 전환 전략 수립 및 기술 지원</li>
-    <li>SAN/NAS 프로토콜(NFS, iSCSI) 구성 및 트러블슈팅을 통한 송출 인프라 안정화</li>
+    <li>SAN/NAS 프로토콜(NFS, iSCSI) 구성과 장비 간 연동 상태 점검, 트러블슈팅을 통한 송출 인프라 안정화</li>
     <li>신규 기술 도입과 장애 대응을 위한 표준 운영 절차(SOP) 기획 및 프로세스 최적화</li>
     <li>Zabbix·Prometheus로 다수 편집용 PC가 연결된 스토리지·NIC 검증 환경을 모니터링하고, Grafana 대시보드로 최대 처리량·사용량·트래픽 오류를 시각화해 참여 인원이 현황을 한눈에 파악하도록 지원</li>
     <li>공공 및 B2B 사업 수주를 위한 나라장터 입찰 서류 준비, 고객 요구사항 기반 기술 제안서와 물량 산출(BOM)·견적서 작성 실무 지원</li>
@@ -136,7 +136,7 @@ footer{margin-top:72px; padding-top:22px; border-top:1px solid var(--line); colo
     <li><b>문제</b> — 처리 대상이 늘자 다음 단계로 데이터를 넘기는 과정에서 API 타임아웃과 응답 파싱 오류가 반복되며 워크플로가 중단</li>
     <li><b>원인</b> — 많은 양을 한 번에 전송해 응답이 지연되었고, 응답 형식이 정해져 있지 않아 다음 단계에서 읽지 못함. 실패 시 재시도와 예외 분기도 없었음</li>
     <li><b>해결</b> — 다시 실행해 넘기지 않고 실행 기록을 처음부터 되짚어 원인을 확인. 단계 간 주고받을 출력 형식을 규격으로 먼저 정의하고, 건 단위로 나눠 전송하도록 변경. 실패 시 정해진 횟수만큼 재시도한 뒤 담당자에게 알리는 분기를 설계</li>
-    <li><b>결과</b> — 수집부터 발송까지 전 구간이 중단 없이 실행. 현업이 매일 반복하던 확인·정리 작업 시간이 2시간에서 20분으로 단축되고 사내에 배포되어 실제 사용</li>
+    <li><b>결과</b> — 수집부터 발송까지 전 구간이 중단 없이 실행. 현업이 매일 반복하던 확인·정리 작업 시간이 2시간에서 20분으로 단축되고, 사내 포털에 탑재되어 시범 운영까지 진행</li>
   </ul>
   <div class="chips"><span>n8n</span><span>Claude API</span><span>MCP</span><span>JSON Schema</span><span>Retry</span></div>
 </div>
@@ -199,12 +199,13 @@ footer{margin-top:72px; padding-top:22px; border-top:1px solid var(--line); colo
 
 <h2>Skills</h2>
 <div class="item">
-  <div class="skill"><b>Infra · Ops</b><span>SAN/NAS(NFS·iSCSI), 25G/100G NIC, Zabbix, Prometheus, Grafana, 장애 대응 SOP</span></div>
+  <div class="skill"><b>Infra · Network</b><span>SAN/NAS(NFS·iSCSI), 25G/100G NIC, LACP, TCP/IP, 장애 대응 SOP</span></div>
+  <div class="skill"><b>Monitoring</b><span>Prometheus, Grafana, Zabbix, 구간별 지표 설계·임계값 조정</span></div>
   <div class="skill"><b>Cloud</b><span>AWS (API 연동·PoC 수준), 하이브리드 저장 체계 전환 전략 수립</span></div>
-  <div class="skill"><b>Language</b><span>Python, SQL, JavaScript, Swift</span></div>
-  <div class="skill"><b>AI · Automation</b><span>Claude API, MCP, n8n, A2A 워크플로 설계</span></div>
-  <div class="skill"><b>Backend · Data</b><span>FastAPI, Django, Supabase(PostgreSQL)</span></div>
-  <div class="skill"><b>Tools</b><span>Git, Figma, QGIS, Notion, Slack</span></div>
+  <div class="skill"><b>Language</b><span>Python, C#(학부 과정), SQL, JavaScript, Swift</span></div>
+  <div class="skill"><b>AI · Automation</b><span>Claude API, MCP, n8n, A2A 워크플로 설계, Docker</span></div>
+  <div class="skill"><b>Backend · Data</b><span>FastAPI, Django, Supabase(PostgreSQL), R</span></div>
+  <div class="skill"><b>Tools</b><span>Git, QGIS, Figma, Notion, Slack</span></div>
   <div class="skill"><b>Certificate</b><span>ADsP, 컴퓨터활용능력 2급, OPIc IH</span></div>
 </div>
 
@@ -215,8 +216,8 @@ footer{margin-top:72px; padding-top:22px; border-top:1px solid var(--line); colo
     <li><b>SW 동행 데모데이</b> 대학생 멘토·발표평가 심사위원 (과학기술정보통신부·한국과학창의재단, 2024.11)</li>
     <li>삼성카드 대학생 교육봉사단 열린멘토링 13기 (2024.02–12)</li>
     <li>KRX 한국거래소 금융인성 교육봉사단 해피누리 13기 (2023.07–12)</li>
-    <li>공간정보 GIS 학회 MAPSEE · 자연지리 학회 활동 (2022.03–2023.12)</li>
-    <li>컴퓨터공학 복수전공</li>
+    <li>공간정보 GIS 학회 MAPSEE · 자연지리 학회 '공간' 활동 (2022.03–2023.12) — 지리학과 연합학술제 포스터 발표대회 2등</li>
+    <li>지리학 · <b>컴퓨터공학 복수전공</b> 졸업 (2026.02)</li>
   </ul>
 </div>
 
